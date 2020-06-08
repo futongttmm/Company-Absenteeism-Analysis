@@ -1,8 +1,8 @@
 # Company Absenteeism Analysis
 
-From a business prespective, this project will address absenteeism at a company during work time. 
+**From a business prespective, this project will address absenteeism at a company during work time.**
 
-### Background
+## Background
 
 The problem is that the business envionment of today is more competitive than it used to be. This leads to increased pressure in the workplace. 
 Therefore, it is reasonable to expect that unachievable business goals and an elevated risk of unemployment can raise people's stress levels.
@@ -24,4 +24,20 @@ This business analysis is expected to ba away from work at some point in time or
 how many working hours an employee could be away from work based on information such as **how far they live from their workplace, how many children and pets they have,
 do they have higher education**, and so on.
 
+## Data Preparation
+[DataPreprocessing.ipynb](https://gitlab.com/futongli/company-absenteeism-analysis/-/blob/master/ModelPreparation/DataPreprocessing.ipynb) is used for data cleaning and data reassembling.
+1. Spliting the categorical variable into multiple dummy variables and re-group them neatly. 
+2. Converting data of columns to desired data type and extracting useful information.
+3. Mapping a bunch of categories into binary data.
+4. Reorder the columns in a meaningful way.
+
+## Logistic Regression Model
+[LogRegModel.ipynb](https://gitlab.com/futongli/company-absenteeism-analysis/-/blob/master/ModelPreparation/LogRegModel.ipynb) contains the steps of creating the logistic regression model.
+1. Using the median as the cut-off for the target.
+2. Creating a "CustomScaler" to standardize the selected inputs, then train and test the logistic regression model by spliting the whole Features and labels into two sets.
+3. Pickle the model and the scaler for assembling the Prediction Module.
+
+## Deploying the Module
+[DeployingAbsenteeisnModule.ipynb](https://gitlab.com/futongli/company-absenteeism-analysis/-/blob/master/Module/DeployingAbsenteeisnModule.ipynb) the [module](https://gitlab.com/futongli/company-absenteeism-analysis/-/blob/master/Module/absenteeism_module.py), 
+and store the result of prediction in to a .csv file.
 
